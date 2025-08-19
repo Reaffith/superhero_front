@@ -1,0 +1,20 @@
+@import '../../vars.scss';
+
+.header {
+    padding: 30px 60px;
+    border-bottom: 2px solid $orangeColor;
+
+    &_link {
+        color: $textColor;
+        font-size: 25px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all $transitionDuration;
+        width: 150px;
+        display: inline-block;
+
+        &:hover {
+            letter-spacing: 2px;
+        }
+    }
+}
