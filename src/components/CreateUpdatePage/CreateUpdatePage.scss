@@ -1,0 +1,185 @@
+@import "../../vars.scss";
+
+.create {
+  padding: 20px 60px;
+
+  &_form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 40px;
+
+    .img {
+      grid-column: 2/3;
+      grid-row: 1/13;
+    }
+
+    &-label {
+      font-size: 20px;
+      margin-bottom: 5px;
+      opacity: 0.7;
+      cursor: pointer;
+    }
+
+    &-input {
+      padding: 5px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 600;
+      color: $textColor;
+      resize: none;
+    }
+
+    &-button {
+      grid-column: 1/-1;
+      background-color: $orangeColor;
+      color: whitesmoke;
+      font-size: 22px;
+      font-weight: 600;
+      padding-block: 10px;
+      border: 2px solid $orangeColor;
+      border-radius: 30px;
+      transition: all $transitionDuration;
+      width: fit-content;
+      margin: auto;
+      padding-inline: 30px;
+
+      &:hover {
+        background-color: whitesmoke;
+        color: $orangeColor;
+      }
+    }
+
+    &-powerbutton {
+      background-color: $orangeColor;
+      color: whitesmoke;
+      font-size: 18px;
+      font-weight: 600;
+      padding-block: 10px;
+      border: 2px solid $orangeColor;
+      border-radius: 30px;
+      transition: all $transitionDuration;
+
+      &:hover {
+        background-color: whitesmoke;
+        color: $orangeColor;
+      }
+    }
+
+    .powerblock {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      input {
+        margin: 0;
+        width: calc(100% - 240px);
+      }
+    }
+
+    &-powers {
+      background-color: white;
+      border-radius: 30px;
+      height: 150px;
+      padding-inline: 20px;
+      overflow-y: scroll;
+      margin-block: 10px;
+
+      &-block {
+        display: flex;
+        justify-content: space-between;
+        transition: all $transitionDuration;
+        padding: 15px;
+        border-radius: 30px;
+
+        &:hover {
+          background-color: #fefae069;
+        }
+
+        &-text {
+          color: $textColor;
+          font-size: 20px;
+          font-weight: 600;
+          margin: 0;
+        }
+
+        &-button {
+          border: none;
+          background-color: rgba($color: #000000, $alpha: 0);
+        }
+      }
+    }
+
+    .img {
+      input {
+        display: none;
+      }
+
+      &_label {
+        text-decoration: underline;
+        font-size: 20px;
+        color: $textColor;
+        margin-right: 30px;
+        cursor: pointer;
+      }
+
+      &_button {
+        background-color: $orangeColor;
+        color: whitesmoke;
+        font-size: 18px;
+        font-weight: 600;
+        padding-block: 10px;
+        border: 2px solid $orangeColor;
+        border-radius: 30px;
+        transition: all $transitionDuration;
+
+        &:hover {
+          background-color: whitesmoke;
+          color: $orangeColor;
+        }
+
+        &:disabled {
+          opacity: 0.7;
+          pointer-events: none;
+        }
+      }
+    }
+
+    &-picblock {
+      background-color: white;
+      border-radius: 30px;
+      height: 520px;
+      margin-top: 20px;
+      box-sizing: border-box;
+      padding: 20px;
+      display: flex;
+      flex-direction: row;
+      gap: 5px;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      overflow-y: scroll;
+
+      div {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        border: 1px solid $orangeColor;
+        padding: 10px;
+        width: 27%;
+        height: fit-content;
+        max-width: 250px;
+
+        button {
+          border: none;
+          background-color: rgba($color: #000000, $alpha: 0);
+          cursor: pointer;
+        }
+
+        img {
+          aspect-ratio: 1/1;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+}
