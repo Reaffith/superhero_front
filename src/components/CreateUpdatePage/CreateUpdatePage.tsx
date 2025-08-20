@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { Hero } from "../../types/hero";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { createHero, fetchOneHero, updateHero } from "../../functions/api";
 import { ErrorPortal } from "../ErrorPortal/ErrorPortal";
 import { Loader } from "../Loader/Loader";
@@ -22,6 +22,7 @@ export const CreateUpdatePage = () => {
   const [newImages, setNewImages] = useState<File[]>([]);
   const [deleteImagesIds, setDeleteImagesIds] = useState<number[]>([]);
   const [currentSuperPower, setCurrentSuperPower] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (id && Number.isFinite(+id)) {
@@ -92,7 +93,9 @@ export const CreateUpdatePage = () => {
         setError(updatedHero.message);
       }
 
-      console.log(updatedHero);
+      if (updatedHero.nickname) {
+        navigate(`/hero/${id}`);
+      }
     } else {
       const createdHero = await createHero(formData);
 
@@ -100,7 +103,9 @@ export const CreateUpdatePage = () => {
         setError(createdHero.message);
       }
 
-      console.log(createdHero);
+      if (createdHero.nickname) {
+        navigate(`/hero/${id}`);
+      }
     }
     setIsLoading(false);
   };
@@ -203,7 +208,9 @@ export const CreateUpdatePage = () => {
         </div>
 
         <div className="img">
-          <label htmlFor="image" className="img_label">Upload image</label>
+          <label htmlFor="image" className="img_label">
+            Upload image
+          </label>
           <input
             type="file"
             accept="image/png, image/jpeg, image/jpg"
