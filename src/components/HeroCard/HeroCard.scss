@@ -4,10 +4,7 @@
   display: block;
   width: 100%;
   box-sizing: border-box;
-  padding: 15px;
   display: flex;
-  gap: 40px;
-  height: 250px;
   align-items: center;
   background-color: white;
   border-radius: 30px;
@@ -20,7 +17,6 @@
   }
 
   &_link {
-    font-size: 80px;
     color: $textColor;
     text-decoration: none;
     transition: all $transitionDuration;
@@ -35,10 +31,46 @@
     }
 
     &:hover {
-        letter-spacing: 5px;
+      letter-spacing: 5px;
       &::after {
         width: 100%;
       }
+    }
+  }
+}
+
+@media (min-width: $breakpoint-pc) {
+  .herocard {
+    padding: 15px;
+    gap: 40px;
+    height: 250px;
+
+    &_link {
+      font-size: 80px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-pc) and (min-width: $breakpoint-phone) {
+.herocard {
+    padding: 15px;
+    gap: 30px;
+    height: 250px;
+
+    &_link {
+      font-size: 50px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-phone) {
+.herocard {
+    padding: 15px;
+    gap: 10px;
+    height: 200px;
+
+    &_link {
+      font-size: 25px;
     }
   }
 }

@@ -2,11 +2,8 @@
 
 .footer {
   display: flex;
-  height: 25vh;
   background-color: $orangeColor;
   box-sizing: border-box;
-  padding: 40px;
-  justify-content: space-between;
   border-radius: 30px 30px 0 0;
 
   &_git {
@@ -32,12 +29,6 @@
     }
   }
 
-  &_center {
-    &-text {
-      font-size: 30px;
-    }
-  }
-
   &_contacts {
     display: flex;
     gap: 4px;
@@ -51,6 +42,71 @@
       font-size: 20px;
       color: black;
       font-weight: 600;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-pc) {
+  .footer {
+    min-height: 25vh;
+    padding: 40px;
+    justify-content: space-between;
+
+    &_center {
+      &-text {
+        font-size: 30px;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-pc) and (min-width: $breakpoint-phone) {
+  .footer {
+    padding: 40px;
+    flex-direction: column;
+    align-items: center;
+
+    p,
+    a {
+      font-size: 16px;
+    }
+
+    &_center {
+      &-text {
+        font-size: 25px;
+      }
+    }
+
+    &_git {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-phone) {
+  .footer {
+    padding: 40px;
+    flex-direction: column;
+    align-items: center;
+
+    p,
+    a {
+      font-size: 16px;
+    }
+
+    &_center {
+      &-text {
+        font-size: 25px;
+        text-align: center;
+      }
+    }
+
+    &_git {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
   }
 }
