@@ -1,0 +1,56 @@
+@import "../../vars.scss";
+
+.footer {
+  display: flex;
+  height: 25vh;
+  background-color: $orangeColor;
+  box-sizing: border-box;
+  padding: 40px;
+  justify-content: space-between;
+  border-radius: 30px 30px 0 0;
+
+  &_git {
+    svg {
+      transform: scale(2);
+    }
+
+    &-block {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+
+      &-text {
+        font-size: 20px;
+      }
+
+      &-link {
+        color: black;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: 600;
+      }
+    }
+  }
+
+  &_center {
+    &-text {
+      font-size: 30px;
+    }
+  }
+
+  &_contacts {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+
+    &-text {
+      font-size: 20px;
+    }
+
+    &-link {
+      font-size: 20px;
+      color: black;
+      font-weight: 600;
+    }
+  }
+}
