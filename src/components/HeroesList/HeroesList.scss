@@ -1,57 +1,96 @@
-@import '../../vars.scss';
+@import "../../vars.scss";
 
 .heroeslist {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &_header {
+    margin: 0;
+  }
+
+  &_list {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+  }
+
+  &_pagination {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+
+    &--button {
+      border: none;
+      outline: none;
+      background-color: rgba($color: #000000, $alpha: 0);
+      color: $textColor;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: 700;
+      width: 30px;
+      text-align: center;
+      box-sizing: border-box;
+      display: block;
+
+      &::after {
+        content: " ";
+        display: block;
+        height: 2px;
+        width: 0;
+        background-color: $orangeColor;
+        transition: all $transitionDuration;
+      }
+
+      &:hover {
+        &::after {
+          width: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $breakpoint-pc) {
+  .heroeslist {
     padding: 60px;
     gap: 30px;
-    
 
     &_header {
-        font-size: 40px;
-        margin: 0;
+      font-size: 40px;
     }
 
     &_list {
-       display: flex;
-       flex-direction: column;
-        gap: 30px;
+      gap: 30px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-pc) and (min-width: $breakpoint-phone) {
+  .heroeslist {
+    padding: 30px;
+    gap: 30px;
+
+    &_header {
+      font-size: 40px;
     }
 
-    &_pagination {
-        display: flex;
-        flex-direction: row;
-        gap: 15px;
-
-        &--button {
-            border: none;
-            outline: none;
-            background-color: rgba($color: #000000, $alpha: 0);
-            color: $textColor;
-            font-size: 16px;
-            cursor: pointer;
-            font-weight: 700;
-            width: 30px;
-            text-align: center;
-            box-sizing: border-box;
-            display: block;
-
-            &::after {
-                content: ' ';
-                display: block;
-                height: 2px;
-                width: 0;
-                background-color: $orangeColor;
-                transition: all $transitionDuration;
-            }
-
-            &:hover {
-                &::after {
-                    width: 20px;
-                }
-            }
-        
-        }
+    &_list {
+      gap: 15px;
     }
+  }
+}
+
+@media (max-width: $breakpoint-phone) {
+  .heroeslist {
+    padding: 10px;
+    gap: 20px;
+
+    &_header {
+      font-size: 25px;
+    }
+
+    &_list {
+      gap: 15px;
+    }
+  }
 }

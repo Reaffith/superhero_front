@@ -1,20 +1,50 @@
-@import '../../vars.scss';
+@import "../../vars.scss";
 
 .header {
+  border-bottom: 2px solid $orangeColor;
+
+  &_link {
+    color: $textColor;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all $transitionDuration;
+    display: inline-block;
+
+    &:hover {
+      letter-spacing: 2px;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-pc) {
+  .header {
     padding: 30px 60px;
-    border-bottom: 2px solid $orangeColor;
 
     &_link {
-        color: $textColor;
-        font-size: 25px;
-        font-weight: 600;
-        text-decoration: none;
-        transition: all $transitionDuration;
-        width: 150px;
-        display: inline-block;
-
-        &:hover {
-            letter-spacing: 2px;
-        }
+      width: 150px;
+      font-size: 25px;
     }
+  }
+}
+
+@media (max-width: $breakpoint-pc) and (min-width: $breakpoint-phone) {
+  .header {
+    padding: 30px 60px;
+
+    &_link {
+      width: 150px;
+      font-size: 25px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-phone) {
+  .header {
+    padding: 10px;
+
+    &_link {
+      margin-right: 20px;
+      font-size: 20px;
+    }
+  }
 }

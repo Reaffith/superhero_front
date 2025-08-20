@@ -1,20 +1,8 @@
 @import "../../vars.scss";
 
 .create {
-  padding: 20px 60px;
-
   &_form {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 40px;
-
-    .img {
-      grid-column: 2/3;
-      grid-row: 1/13;
-    }
-
     &-label {
-      font-size: 20px;
       margin-bottom: 5px;
       opacity: 0.7;
       cursor: pointer;
@@ -24,7 +12,6 @@
       padding: 5px;
       margin-bottom: 10px;
       border-radius: 8px;
-      font-size: 18px;
       font-weight: 600;
       color: $textColor;
       resize: none;
@@ -34,7 +21,6 @@
       grid-column: 1/-1;
       background-color: $orangeColor;
       color: whitesmoke;
-      font-size: 22px;
       font-weight: 600;
       padding-block: 10px;
       border: 2px solid $orangeColor;
@@ -42,7 +28,6 @@
       transition: all $transitionDuration;
       width: fit-content;
       margin: auto;
-      padding-inline: 30px;
 
       &:hover {
         background-color: whitesmoke;
@@ -53,7 +38,6 @@
     &-powerbutton {
       background-color: $orangeColor;
       color: whitesmoke;
-      font-size: 18px;
       font-weight: 600;
       padding-block: 10px;
       border: 2px solid $orangeColor;
@@ -69,18 +53,15 @@
     .powerblock {
       display: flex;
       align-items: center;
-      gap: 20px;
 
       input {
         margin: 0;
-        width: calc(100% - 240px);
       }
     }
 
     &-powers {
       background-color: white;
       border-radius: 30px;
-      height: 150px;
       padding-inline: 20px;
       overflow-y: scroll;
       margin-block: 10px;
@@ -98,7 +79,6 @@
 
         &-text {
           color: $textColor;
-          font-size: 20px;
           font-weight: 600;
           margin: 0;
         }
@@ -117,7 +97,6 @@
 
       &_label {
         text-decoration: underline;
-        font-size: 20px;
         color: $textColor;
         margin-right: 30px;
         cursor: pointer;
@@ -126,7 +105,6 @@
       &_button {
         background-color: $orangeColor;
         color: whitesmoke;
-        font-size: 18px;
         font-weight: 600;
         padding-block: 10px;
         border: 2px solid $orangeColor;
@@ -148,10 +126,8 @@
     &-picblock {
       background-color: white;
       border-radius: 30px;
-      height: 520px;
       margin-top: 20px;
       box-sizing: border-box;
-      padding: 20px;
       display: flex;
       flex-direction: row;
       gap: 5px;
@@ -165,7 +141,6 @@
         gap: 5px;
         border: 1px solid $orangeColor;
         padding: 10px;
-        width: 27%;
         height: fit-content;
         max-width: 250px;
 
@@ -178,6 +153,214 @@
         img {
           aspect-ratio: 1/1;
           object-fit: contain;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $breakpoint-pc) {
+  .create {
+    padding: 20px 60px;
+
+    &_form {
+      display: grid;
+      column-gap: 40px;
+      grid-template-columns: repeat(2, 1fr);
+
+      .img {
+        grid-column: 2/3;
+        grid-row: 1/13;
+      }
+
+      &-label {
+        font-size: 20px;
+      }
+
+      &-input {
+        font-size: 18px;
+      }
+
+      &-button {
+        font-size: 22px;
+        padding-inline: 30px;
+      }
+
+      &-powerbutton {
+        font-size: 18px;
+      }
+
+      .powerblock {
+        gap: 20px;
+
+        input {
+          width: calc(100% - 240px);
+        }
+      }
+
+      &-powers {
+        height: 150px;
+
+        &-block {
+          &-text {
+            font-size: 20px;
+          }
+        }
+      }
+
+      .img {
+        &_label {
+          font-size: 20px;
+        }
+
+        &_button {
+          font-size: 18px;
+        }
+      }
+
+      &-picblock {
+        height: 520px;
+        padding: 20px;
+
+        div {
+          width: 27%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-pc) and (min-width: $breakpoint-phone) {
+  .create {
+    padding: 20px 30px;
+
+    &_form {
+      display: grid;
+      column-gap: 20px;
+      grid-template-columns: repeat(2, 1fr);
+
+      .img {
+        grid-column: 2/3;
+        grid-row: 1/13;
+      }
+
+      &-label {
+        font-size: 18px;
+      }
+
+      &-input {
+        font-size: 18px;
+      }
+
+      &-button {
+        font-size: 22px;
+        padding-inline: 30px;
+      }
+
+      &-powerbutton {
+        font-size: 18px;
+      }
+
+      .powerblock {
+        gap: 18px;
+
+        input {
+          width: calc(100% - 240px);
+        }
+      }
+
+      &-powers {
+        height: 150px;
+
+        &-block {
+          &-text {
+            font-size: 18px;
+          }
+        }
+      }
+
+      .img {
+        &_label {
+          font-size: 20px;
+        }
+
+        &_button {
+          font-size: 18px;
+        }
+      }
+
+      &-picblock {
+        height: 520px;
+        padding: 20px;
+
+        div {
+          width: 27%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-phone) {
+    .create {
+    padding: 20px 30px;
+
+    &_form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      &-label {
+        font-size: 18px;
+      }
+
+      &-input {
+        font-size: 18px;
+      }
+
+      &-button {
+        font-size: 22px;
+        padding-inline: 30px;
+      }
+
+      &-powerbutton {
+        font-size: 18px;
+      }
+
+      .powerblock {
+        gap: 18px;
+
+        input {
+          width: calc(100% - 240px);
+        }
+      }
+
+      &-powers {
+        height: 150px;
+
+        &-block {
+          &-text {
+            font-size: 18px;
+          }
+        }
+      }
+
+      .img {
+        &_label {
+          font-size: 20px;
+        }
+
+        &_button {
+          font-size: 18px;
+        }
+      }
+
+      &-picblock {
+        height: 520px;
+        padding: 20px;
+
+        div {
+          width: 80%;
         }
       }
     }
