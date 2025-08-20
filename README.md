@@ -1,69 +1,52 @@
-# React + TypeScript + Vite
+# Superhero Database Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend for a superhero database web application built with **React** and **TypeScript**. It allows users to perform CRUD operations on a superhero model, including creating, updating, and viewing superheroes, with support for image uploads and pagination. The frontend communicates with a Nest.js backend to manage data.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **List Superheroes**: Displays a paginated list of superheroes (5 per page) with their nickname and one image each.
+- **View Hero Details**: Shows detailed information about a superhero, including all associated images.
+- **Create/Update Hero**: Allows creating or updating a superhero with fields for nickname, real name, origin description, superpowers, catchphrase, and multiple image uploads.
+- **Delete Hero**: Removes a superhero from the database.
+- **Routing**: Uses `react-router-dom` for client-side navigation.
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React**: Frontend library for building user interfaces.
+- **TypeScript**: Adds static typing for better developer experience and type safety.
+- **React Router**: Handles client-side routing (`HashRouter` for compatibility).
+- **SCSS**.
+- **Backend**: Communicates with a Nest.js API (see [Backend Repository](https://github.com/Reaffith/superhero_back)).
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## Installation
+# To ensure that project works corecrly install backend first
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/Reaffith/superhero_front.git
+   cd superhero_front
+   ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+3. **Start the Development Server**:
+   ```bash
+   npm start
+   ```
+   The app will run at `http://localhost:5173`.
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Usage
+
+- **Home Page (`/`)**: Displays the `HeroesList` component with a paginated list of superheroes (5 per page).
+- **Create Hero (`/create`)**: Opens a form to create a new superhero, allowing input of details and multiple image uploads.
+- **Update Hero (`/update/:id`)**: Opens a form to edit an existing superhero, pre-filled with current data, with options to update fields, add new images, or delete existing images.
+- **Hero Details (`/hero/:id`)**: Shows full details of a superhero, including all images.
+
+## Backend
+
+The frontend communicates with a **Nest.js** backend that manages the superhero database. The backend provides RESTful APIs for CRUD operations and handles image uploads using Multer with `MemoryStorage`. For details, see the backend repository:  
+[**Superhero Database Backend**](https://github.com/Reaffith/superhero_back).
