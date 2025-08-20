@@ -10,7 +10,8 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />}>
           <Route index element={<HeroesList />}></Route>
-          <Route path="create" element={<CreateUpdatePage/>}></Route>
+          <Route path="create" element={<CreateUpdatePage />}></Route>
+          <Route path="update/:id" element={<CreateUpdatePage />}></Route>
         </Route>
       </Routes>
     </Router>

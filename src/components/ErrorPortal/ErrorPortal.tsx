@@ -24,7 +24,7 @@ export const ErrorPortal: React.FC<Props> = ({ message, setError }) => {
     const timer = setTimeout(() => {
       setIsOpen(false);
       setError('');
-    }, 3000);
+    }, 3300);
 
     return () => clearTimeout(timer);
   }, []);

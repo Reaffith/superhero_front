@@ -5,6 +5,7 @@ import { fetchHeroes, fetchPagesCount } from "../../functions/api";
 import { HeroCardMemo } from "../HeroCard/HeroCard";
 import { useSearchParams } from "react-router-dom";
 import './HeroesList.scss';
+import { Loader } from "../Loader/Loader";
 
 export const HeroesList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -12,9 +13,11 @@ export const HeroesList = () => {
   const [error, setError] = useState("");
   const [page, setPage] = useState(Number(searchParams.get("page")) || 1);
   const [pageCount, setPageCount] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const getHeroes = async () => {
+      setIsLoading(true);
       try {
         const result = await fetchHeroes(page);
 
@@ -27,6 +30,8 @@ export const HeroesList = () => {
       } catch (error) {
         console.log(error);
       }
+
+      setIsLoading(false);
     };
 
     setSearchParams({ page: page.toString() });
@@ -36,9 +41,11 @@ export const HeroesList = () => {
 
   useEffect(() => {
     const getPagesCount = async () => {
+      setIsLoading(true);
       const result = await fetchPagesCount();
 
       setPageCount(result);
+     setIsLoading(false);
     };
 
     getPagesCount();
@@ -46,7 +53,8 @@ export const HeroesList = () => {
 
   return (
     <div className="heroeslist">
-      {!error && <ErrorPortal message={"test message"} setError={setError} />}
+      {!!error && <ErrorPortal message={error} setError={setError} />}
+      {isLoading && <Loader />}
 
       <h1 className="heroeslist_header">Super Heroes</h1>
 
